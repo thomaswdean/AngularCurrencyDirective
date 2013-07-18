@@ -50,9 +50,8 @@ define(['app'], function (app) {
                 }
                 decPart = "." + decPart;
             }
-            var res = intPart + decPart;
 
-            return res;
+            return [intPart, decPart].join('');
         };
 
         return {
