@@ -84,7 +84,7 @@ define(['app'], function (app) {
                 };
 
                 element.bind('keypress', function (e) {
-                    if (e.charCode !== 0 && String.fromCharCode(e.charCode).match(/[^\d.\',']/g)) {
+                    if (e.charCode !== 0 && String.fromCharCode(e.charCode).match(/[^\d.]/g)) {
                         e.preventDefault();
                         return;
                     }
