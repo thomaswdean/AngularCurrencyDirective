@@ -13,8 +13,8 @@ define(['app'], function (app) {
         }
 
         var p = function (viewValue) {
-            var numbs = viewValue.toString().replace(/[^\d.]/g, '');
-            return numbs;
+            var nums = viewValue.toString().replace(/[^\d.]/g, '');
+            return nums;
         };
 
         var f = function (modelValue, setdec) {
