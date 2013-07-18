@@ -1,0 +1,4 @@
+AngularCurrencyDirective
+========================
+
+Angular Currency Directive
