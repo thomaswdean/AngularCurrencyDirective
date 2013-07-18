@@ -3,6 +3,11 @@
 define(['app'], function (app) {
 
     app.register.directive('currency', function () {
+
+        String.prototype.splice = function (idx, rem, s) {
+            return (this.slice(0, idx) + s + this.slice(idx + Math.abs(rem)));
+        };
+        
         function isEmpty(value) {
             return angular.isUndefined(value) || value === '' || value === null || value !== value;
         }
@@ -98,10 +103,6 @@ define(['app'], function (app) {
                         return;
                     }
                 });
-
-                String.prototype.splice = function (idx, rem, s) {
-                    return (this.slice(0, idx) + s + this.slice(idx + Math.abs(rem)));
-                };
 
                 $(element).bind('blur paste', function (e) {
                     element.val(f($(this).val()));
