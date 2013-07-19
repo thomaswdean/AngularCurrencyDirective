@@ -23,6 +23,7 @@ define(['app'], function (app) {
             var intPart = decimalSplit[0];
             var decPart = decimalSplit[1];
 
+            intPart = (intPart == "" && setdec) ? "0" : intPart;
             intPart = intPart.replace(/[^\d]/g, '');
             if (intPart.length > 3) {
                 var intDiv = Math.floor(intPart.length / 3);
