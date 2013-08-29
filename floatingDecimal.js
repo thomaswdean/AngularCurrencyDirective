@@ -92,11 +92,21 @@ define(['app'], function (app) {
                 };
 
                 element.bind('keypress', function (e) {
-                    if (e.charCode !== 0 && String.fromCharCode(e.charCode).match(/[^\d.]/g)) {
+                    var charCode = (typeof e.which == "number") ? e.which : e.keyCode,
+                        currentValue = $(this).val(),
+                        start = this.selectionStart,
+                        end = this.selectionEnd;
+                    var insertValue = charCode !== 0 ? String.fromCharCode(charCode) : '',
+                        charCount = end - start;
+                    var newValue = currentValue.splice(start, charCount, insertValue);
+                    
+                    if (charCode == 0 || charCode == 8)
+                        return;
+                    if (String.fromCharCode(charCode).match(/[^\d.]/g)) {
                         e.preventDefault();
                         return;
                     }
-                    if ($(this).val().indexOf(".") != -1 && e.charCode == 46) {
+                    if (newValue.split(".").length > 2 && charCode == 46) {
                         e.preventDefault();
                         return;
                     }
